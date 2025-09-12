@@ -7,7 +7,7 @@ const welcomeStrings = [
   "To learn more about Express on Vercel, visit https://vercel.com/docs/frameworks/backend/express",
 ]
 
-app.get('/', (_req, res) => {
+app.get('/api', (_req, res) => {
   res.send(welcomeStrings.join('\n\n'))
 })
 
