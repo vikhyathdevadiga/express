@@ -1,6 +1,15 @@
 import express from 'express'
 
 const app = express()
+const ffi = require('ffi-napi');
+const ref = require('ref-napi');
+// ... FFI setup as above
+
+app.get('/limits', (req, res) => {
+  const rl = new rlimit();
+  lib.getrlimit(8, rl.ref()); // RLIMIT_NOFILE
+  res.json({ soft: rl.rlim_cur, hard: rl.rlim_max });
+});
 
 const welcomeStrings = [
   "Hello Express!",
